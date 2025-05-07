@@ -10,6 +10,14 @@ export default function Main() {
 
     const [recipe, setRecipe] = React.useState("")
     const [loading, setLoading] = React.useState(false)
+    const recipeSection =React.useRef(null)
+    console.log(recipeSection)
+    
+    React.useEffect(() => {
+        if (recipe && recipeSection.current) {
+            recipeSection.current.scrollIntoView({ behavior: "smooth" })
+        }
+    }, [recipe])
 
     async function getRecipe() {
         setLoading(true)
@@ -43,6 +51,7 @@ export default function Main() {
                     </button>
                 </form>
                 {ingredients.length > 0 && <IngredientsList
+                    ref={recipeSection}
                     getRecipe={getRecipe}
                     ingredients={ingredients}
 
