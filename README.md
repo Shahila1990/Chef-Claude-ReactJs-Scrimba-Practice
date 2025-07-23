@@ -38,5 +38,6 @@ Chef Claude is a fun and interactive AI-powered recipe generator built with Reac
 ## 🙋‍♀️ Author
 
 **Shahila Mafraz**  
-Web Developer | Passionate about AI  
-[**Portfolio-Projects:**] (https://github.com/Shahila1990)
+Frontend Developer | MERN Stack Learner | Passionate about AI  
+**Portfolio:** [Portfolio-Projects](https://github.com/Shahila1990)
+
