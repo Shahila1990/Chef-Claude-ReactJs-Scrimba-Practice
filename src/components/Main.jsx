@@ -10,8 +10,11 @@ export default function Main() {
 
     const [recipe, setRecipe] = React.useState("")
     const [loading, setLoading] = React.useState(false)
+    
+
+    
     const recipeSection =React.useRef(null)
-    console.log(recipeSection)
+    //console.log(recipeSection)
     
     React.useEffect(() => {
         if (recipe && recipeSection.current) {
@@ -36,31 +39,30 @@ export default function Main() {
 
     }
     return (
-        <>
-            <main>
-                <form action={addIngredients} className="ingredient-form">
-                    <input
-                        aria-label="Add ingredient"
-                        type="text"
-                        placeholder="eg. Flour"
-                        name="ingredient">
+      <>
+        <main>
+          <form action={addIngredients} className="ingredient-form">
+            <input
+              aria-label="Add ingredient"
+              type="text"
+              placeholder="eg. Flour"
+              name="ingredient"
+            ></input>
+            <button>Add Ingredients</button>
+          </form>
+          {ingredients.length > 0 && (
+            <IngredientsList
+              ref={recipeSection}
+              getRecipe={getRecipe}
+              ingredients={ingredients}
+            />
+          )}
 
-                    </input>
-                    <button>
-                        Add Ingredients
-                    </button>
-                </form>
-                {ingredients.length > 0 && <IngredientsList
-                    ref={recipeSection}
-                    getRecipe={getRecipe}
-                    ingredients={ingredients}
-
-                />}
-
-                {(loading || recipe) && <ClaudeRecipe recipe={recipe} loading={loading}/>}
-
-            </main>
-
-        </>
-    )
+          {(loading || recipe) && (
+            <ClaudeRecipe recipe={recipe} loading={loading} />
+          )}
+          
+        </main>
+      </>
+    );
 }
